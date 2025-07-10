@@ -1,0 +1,30 @@
+{
+  "name": "fastify-user-count-api",
+  "version": "1.0.0",
+  "description": "A RESTful API using Fastify that returns the total count of users from a database",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup-db": "node setup-database.js",
+    "test": "node test-api.js",
+    "test-error-handling": "node test-error-handling.js"
+  },
+  "keywords": [
+    "fastify",
+    "api",
+    "rest",
+    "database",
+    "user-count"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^4.24.3",
+    "sqlite3": "^5.1.6",
+    "@fastify/cors": "^8.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
