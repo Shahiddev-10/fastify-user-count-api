@@ -1,11 +1,6 @@
 const { getUserCount } = require("./database");
 
-/**
- * Register all API routes
- * @param {FastifyInstance} fastify - Fastify instance
- */
 async function registerRoutes(fastify) {
-  // Health check endpoint
   fastify.get("/", async (request, reply) => {
     return {
       message: "Fastify User Count API is running!",
@@ -17,7 +12,6 @@ async function registerRoutes(fastify) {
     };
   });
 
-  // Main API endpoint to get user count
   fastify.get("/api/usercount", async (request, reply) => {
     try {
       const totalUsers = await getUserCount();

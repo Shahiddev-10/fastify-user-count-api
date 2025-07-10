@@ -1,23 +1,16 @@
-/**
- * Test script to verify enhanced error handling
- */
-
 const fs = require("fs");
 const path = require("path");
 
 console.log("🧪 Testing Enhanced Error Handling Features...\n");
 
-// Test 1: Check if the server file has proper error handling
 console.log("✅ Test 1: Server syntax validation - PASSED");
 
-// Test 2: Verify database file detection
 const dbPath = path.join(__dirname, "test001.db");
 const dbExists = fs.existsSync(dbPath);
 console.log(
   `✅ Test 2: Database file detection - ${dbExists ? "PASSED" : "FAILED"}`
 );
 
-// Test 3: Check error handler implementation
 const serverContent = fs.readFileSync(
   path.join(__dirname, "server.js"),
   "utf8"
@@ -53,7 +46,6 @@ console.log(
   `✅ Test 7: Safe database closing - ${hasSafeDbClose ? "PASSED" : "FAILED"}`
 );
 
-// Test 8: Verify enhanced health check
 const hasEnhancedHealthCheck =
   serverContent.includes("database") && serverContent.includes("uptime");
 console.log(

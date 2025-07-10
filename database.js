@@ -3,10 +3,6 @@ const path = require("path");
 
 const DB_PATH = path.join(__dirname, "test001.db");
 
-/**
- * Connect to the SQLite database
- * @returns {Promise<sqlite3.Database>} Database connection
- */
 function connectToDatabase() {
   return new Promise((resolve, reject) => {
     const db = new sqlite3.Database(DB_PATH, (err) => {
@@ -20,13 +16,6 @@ function connectToDatabase() {
   });
 }
 
-/**
- * Execute a query on the database
- * @param {sqlite3.Database} db - Database connection
- * @param {string} query - SQL query to execute
- * @param {Array} params - Query parameters
- * @returns {Promise<any>} Query result
- */
 function executeQuery(db, query, params = []) {
   return new Promise((resolve, reject) => {
     db.get(query, params, (err, row) => {
@@ -39,11 +28,6 @@ function executeQuery(db, query, params = []) {
   });
 }
 
-/**
- * Close database connection safely
- * @param {sqlite3.Database} db - Database connection to close
- * @returns {Promise<void>}
- */
 function closeDatabaseSafely(db) {
   return new Promise((resolve) => {
     if (db) {
@@ -61,10 +45,6 @@ function closeDatabaseSafely(db) {
   });
 }
 
-/**
- * Get user count from the database
- * @returns {Promise<number>} Total number of users
- */
 async function getUserCount() {
   let db;
   try {

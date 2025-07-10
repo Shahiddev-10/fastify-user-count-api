@@ -4,15 +4,12 @@ const fastify = require("fastify")({
 
 const { registerRoutes } = require("./routes");
 
-// Register CORS plugin
 fastify.register(require("@fastify/cors"), {
   origin: true,
 });
 
-// Register all routes
 fastify.register(registerRoutes);
 
-// Error handler
 fastify.setErrorHandler((error, request, reply) => {
   fastify.log.error(error);
   reply.code(500).send({
@@ -21,7 +18,6 @@ fastify.setErrorHandler((error, request, reply) => {
   });
 });
 
-// Start the server
 const start = async () => {
   try {
     const port = process.env.PORT || 6776;
